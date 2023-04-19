@@ -90,4 +90,5 @@ function mouseDragged(){
   for (let i = 0; i < boxies.length; i++) {
     boxies[i].move();
   }
+  console.log("test");
 }
