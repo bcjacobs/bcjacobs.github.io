@@ -9,7 +9,11 @@ let playHeadSpeed2= 5;
 let boxies = [];
 
 function setup() {
-  createCanvas(720, 400);
+  
+  var cnv = createCanvas(720, 400);
+  var x = (windowWidth - width) / 2;
+//  var y = (windowHeight - height) / 2;
+  cnv.position(x, 100);
   
   for (let i = 0; i < 100; i++) {
     boxies.push(new box(random(720), random(400), 5));
