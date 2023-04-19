@@ -18,11 +18,12 @@ function setup() {
   for (let i = 0; i < 100; i++) {
     boxies.push(new box(random(720), random(400), 5));
   }
- getAudioContext().resume(); // this was for a problem with chrome
+ 
 }
 
 function draw() {
   background(0);
+  getAudioContext().resume(); // this was for a problem with chrome
   
   for (let i = 0; i < boxies.length; i++) {
     boxies[i].make();
