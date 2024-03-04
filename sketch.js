@@ -1,95 +1,68 @@
-// 2d soundfield
+let audioStarted = false; // needed to get it to work in full screen mode
 
-let playHeadCount1= 0;
-let playHeadSpeed1= 5;
+var levelsLow;
+var levelsHigh;
 
-let playHeadCount2= 0;
-let playHeadSpeed2= 5;
+function preload(){
+  sound = loadSound('drumLoop.mp3');
+}
 
-let boxies = [];
+
 
 function setup() {
+
+  getAudioContext().suspend(); // needed to get it to work in full screen mode
+
   
-  var cnv = createCanvas(720, 400);
-  var x = (windowWidth - width) / 2;
-//  var y = (windowHeight - height) / 2;
-  cnv.position(x, 100);
+  // createCanvas(710, 400, WEBGL);
   
-  for (let i = 0; i < 100; i++) {
-    boxies.push(new box(random(720), random(400), 5));
-  }
- 
+  createCanvas(displayWidth, displayHeight, WEBGL);
+  
+  fft = new p5.FFT();
+  sound.play();
+  sound.amp(0.2);
 }
 
 function draw() {
-  background(0);
-  getAudioContext().resume(); // this was for a problem with chrome
+  background(255);
   
-  for (let i = 0; i < boxies.length; i++) {
-    boxies[i].make();
-    boxies[i].update();
+  let spectrum = fft.analyze();
+  
+  if(spectrum[10] > 100){
+    levelsLow = spectrum[10];
   }
   
-  playHeadCount1 = playHeadCount1 + playHeadSpeed1;
-  playHeadCount2 = playHeadCount2 + playHeadSpeed2;
-  
-  if (playHeadCount1 > height){
-    playHeadCount1 = 0;
+  if(spectrum[200] > 100){
+    levelsHigh = spectrum[200];
   }
-  
-  if (playHeadCount2 > width){
-    playHeadCount2 = 0;
+ 
+  for (let i=0; i<width; i=i+7){
+    line(i-(width/2), -height/2, i-(width/2), height/2);
   }
+
+
+  push();
+  translate(-width/4, 0, 0);
+  // rotateZ(frameCount * 0.01);
+  rotateX(frameCount * 0.01);
+  rotateY(frameCount * 0.01);
+  torus(levelsLow+ width/100, width*.015);
+  pop();
   
-  // Playhead
-  stroke(255);
-  line(0, playHeadCount1, width, playHeadCount1);
-  line(playHeadCount2, 0, playHeadCount2, height);
+  push();
+  translate(width/4, 0, 0);
+  // rotateZ(frameCount * 0.01);
+  rotateX(frameCount * 0.01);
+  rotateY(frameCount * 0.01);
+  torus(levelsHigh+ width/100 , width*.015);
+  pop();
   
 }
 
-class box{
-  constructor(tempX, tempY, tempSize=20){
-    this.x = tempX;
-    this.y = tempY;
-    this.size = tempSize;
-    
-    this.osc = new p5.Oscillator('sine');
-    this.osc.start();
-    this.osc.amp(0);
-    
-    this.frequancy = random(300, 350);
-  }
-  
-  make(){
-    noStroke();
-    square(this.x, this.y, this.size)
-  }
-    
-  update(){
-    if (playHeadCount1 > this.y - 20 && playHeadCount1 < this.y + 20 ||
-      playHeadCount2 > this.x - 20 && playHeadCount2 < this.x + 20){
-    this.osc.amp(.06, .1);
-    this.osc.freq(this.frequancy);
-  } else {this.osc.amp(.0, .1);}
-  }
-  
-  move(){
-    if (
-    mouseX > this.x - this.size &&
-    mouseX < this.x + this.size &&
-    mouseY > this.y - this.size &&
-    mouseY < this.y + this.size
-  ) {
-    this.x = mouseX;
-    this.y = mouseY;
-  }
-  }
-}
-
-function mouseDragged(){
-  for (let i = 0; i < boxies.length; i++) {
-    boxies[i].move();
-  }
-  console.log("test");
+function mousePressed() { // needed to get it to work in full screen mode
+    // Start audio on user gesture
+    if (!audioStarted) {
+        userStartAudio();
+        audioStarted = true;
+    }
 }
