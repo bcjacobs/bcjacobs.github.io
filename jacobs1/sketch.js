@@ -1,32 +1,40 @@
-let audioStarted = false; // needed to get it to work in full screen mode
+// this is helper code to get your audio responsive visualizer to look good on a full screen
+// to see this in full screen go to file->share>fullscreen
 
+
+let audioStarted = false; // needed to get it to work in full screen mode
+let audioIn; // selecting the right audio interface
+let mic; // this is so we can get audio in
+
+// my variable for the image I'm creating
 var levelsLow;
 var levelsHigh;
 
 function preload(){
-  sound = loadSound('drumLoop.mp3');
+  // sound = loadSound('drumLoop.mp3');
 }
-
-
 
 function setup() {
 
-  getAudioContext().suspend(); // needed to get it to work in full screen mode
-
-  
-  // createCanvas(710, 400, WEBGL);
-  
-  createCanvas(displayWidth, displayHeight, WEBGL);
+  createCanvas(displayWidth, displayHeight, WEBGL); // important to change your canvas to fit the screen
   
   fft = new p5.FFT();
-  sound.play();
-  sound.amp(0.2);
+  mic = new p5.AudioIn(); 
+  mic.getSources(gotSources); // so we can get sound from the audio interface
+  fft.setInput(mic);
+  // sound.play();
+  // sound.amp(0.2);
+  
+  getAudioContext().suspend(); // needed to get it to work in full screen mode
+
 }
 
 function draw() {
   background(255);
   
   let spectrum = fft.analyze();
+  
+  console.log(spectrum);
   
   if(spectrum[10] > 100){
     levelsLow = spectrum[10];
@@ -39,7 +47,6 @@ function draw() {
   for (let i=0; i<width; i=i+7){
     line(i-(width/2), -height/2, i-(width/2), height/2);
   }
-
 
   push();
   translate(-width/4, 0, 0);
@@ -65,4 +72,13 @@ function mousePressed() { // needed to get it to work in full screen mode
         userStartAudio();
         audioStarted = true;
     }
+}
+
+function gotSources(deviceList) { // needed to select the default audio interface
+  if (deviceList.length > 0) {
+    mic.setSource(0);
+    let currentSource = deviceList[mic.currentSource];
+    print('set source to: ' + currentSource.label);
+    mic.start(); //it's important that mic start is below the set source code or it will still use the automatically selected one
+  }
 }
