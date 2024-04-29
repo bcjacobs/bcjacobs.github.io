@@ -144,6 +144,13 @@ class box{
 }
 
 function mousePressed(){
+  
+      if (!audioStarted) {
+        userStartAudio();
+        audioStarted = true;
+        mode = 1;
+    }
+  
   for (let i = 0; i < boxies.length; i++) {
     boxies[i].overBox()
     }
@@ -157,3 +164,5 @@ function mouseDragged(){
     }
   }
 }
+
+
