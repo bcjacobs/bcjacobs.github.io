@@ -5,3 +5,14 @@ html, body {
 canvas {
   display: block;
 }
+
+div {
+  max-width: 400px;
+/*   margin: auto; */
+/*   border: 3px solid #73AD21; */
+/*   justify-content: center; */
+}
+
+
+
+  
