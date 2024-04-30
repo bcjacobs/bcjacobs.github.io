@@ -32,6 +32,7 @@ function draw() {
   if (mouseIsPressed == true && splash.update() == true) {
     mode = 1;
   }
+  
 
   if (mode == 1) {
     splash.hide();
