@@ -2,73 +2,90 @@ var buttons = [];
 var yPos = 0;
 var overflow = false;
 var boarder;
+var img = [];
 
 var student = [
-  ["BryanJacobs", "https://bcjacobs.github.io/jacobs/"],
-  ["AviKrishan", "https://editor.p5js.org/krishan.fred/full/s5lEa_LSm"],
-  ["XinyaoChen", "https://editor.p5js.org/xchen4061/sketches/UUuwuWk-X"],
-  ["YunxianZhang", "https://editor.p5js.org/YunxiangZhang/full/T7Hi57VGX"],
-  ["BaoqiZhao", "https://editor.p5js.org/Baoqi/sketches/GMiPOjGz7"],
-  ["YumanWu", "https://editor.p5js.org/yumanwu/sketches/wTsg7L59y"],
-  ["SooHyunBahn", "https://editor.p5js.org/sbahn2/full/WrKDR3rOK"],
-  [
-    "ShashaChen",
-    "https://editor.p5js.org/thewolrdisyouroyster/sketches/lIRiqoUWB",
-  ],
-  ["JosephGipple", "https://editor.p5js.org/CaptainBarjoser/full/jSZpIq5uJ"],
-  ["MarcusHart", "https://editor.p5js.org/mhart1127/full/LtFfMW2XG"],
-  ["png", "https://editor.p5js.org/tjorda23/full/HBLTFLgrs"], // TylerJordan
-  ["png", "https://editor.p5js.org/aosuhdsaodh/sketches/IbiagiG-M"], // ZiQiLi
-  ["ZhitaoLin", "https://editor.p5js.org/zitroll1224/full/jn3_WKupJ"],
-  ["DerrickPeng", "https://editor.p5js.org/Sitbear/full/FNyZ4wyw_"],
-  ["HengyiWang", "https://editor.p5js.org/henry21/full/HVNi5wv63"],
-  ["GeneYi", "https://editor.p5js.org/GeneYi/full/QjNMoLcbT"],
-  ["JoannaZheng", "https://editor.p5js.org/Joanna03/full/VniEkFGRi"],
-  ["YuanZheng", "https://editor.p5js.org/YuanZheng/sketches/OACVtL76r"],
-  ["png", "https://editor.p5js.org/zvosher/full/Mx5LeetK8"], // ZiviOsher
-  ["png", "https://editor.p5js.org/Xiyao-create/full/m23lcmjf7"], //XiyaoTu,
-  ["png", "https://editor.p5js.org/subject9point3/sketches/CzmVnPF8D"], //BenjaminStewart
-  ["png", "https://editor.p5js.org/yqian/full/335wSa6BR"], //YuntianQian
-  [
-    "Chien-YuanCheng",
-    "https://github.com/Chien-Yuan/FInal-Websocket-Connection",
-  ],
-  ["XiwenFan", "https://editor.p5js.org/gxc0203/full/GXIaWzOuD"],
-  ["RobGreaney", "https://editor.p5js.org/Rgreane1/full/7I-JISGkv"],
-  ["YuYuHsiao", "https://editor.p5js.org/yuyuhsiao/full/RQ3eXHEov"],
-  ["png", "https://editor.p5js.org/CJ608/sketches/QIdn21asm"], //ChenxingJi,
-  ["YiLao", "https://editor.p5js.org/CJ608/sketches/QIdn21asm"],
-  ["png", "https://editor.p5js.org/ehartzler/sketches/OFbMTiGEF"], //EliotHartzler
-  ["NikkoMusuraca", "https://editor.p5js.org/nikkomusuraca/full/IU0VvyThS"],
-  ["png", "https://editor.p5js.org/MaxWang/sketches/F4jAyztlX"], //ZhenghaoWang
-  ["YunxiangZhang", "https://editor.p5js.org/YunxiangZhang/full/T7Hi57VGX"],
+  ["bryanjacobs", "https://bcjacobs.github.io/jacobs"],
+  ["gainesjordan", "https://jgaine16.github.io/Audio-Images/"],
+  ["haosiyuan", "https://siyuanhao2004.github.io/SiyuanHaoRefined/"],
+  ["litian", "https://ypo123.github.io/Monk_Synth/"],
+  ["sad", "https://daysonyang.github.io/3D-synthesizer/"],
+  ["wangqihao", "https://myshadowgithub.github.io/My_P5JS_Final_Project/OnlineKeyboard/"],
+  ["yiting", "https://naw9nawnaw.github.io/Shader1-With-Sound-by-Nawmel/"],
+  ["fionawu", "https://fionawu1212.github.io/p5jsFinal/final2024/"],
+  ["yangmengyi", "https://mengyi0830.github.io/Programming_Final_Project_Reverb/"], 
+
+  ["faisalaletani", "https://faisalaletani.github.io/CYMATICS-of-MAQAM/"], 
+  ["askewjonah", "https://jozartmusic.github.io/FinalProjectNotFinished/"], 
+  ["benjin", "https://mjin27.github.io/final/"], 
+  ["sambroomell", "https://sbroomell.github.io/FinalProject/"], 
+
+  ["michaelchase", "https://m-a-c-m-a-c.github.io/Procedural-Sequencer/"], 
+  ["louischavasse", "https://novedeht.github.io/The-Looper/"], 
+  ["sad", "https://editor.p5js.org/Clairedu/sketches/rFnJmjc9h"], 
+  ["rossleo", "https://aeyth1.github.io/flappy-bird/"], 
+  ["fujulia", "https://juliafu420.github.io/the-maze-runner/"], 
+  ["jeonjiwoong", "https://wjswldndfpdh.github.io/Jiwoong-Jeon-final/Jiwoong_Jeon_final_project_2024_04_28_00_09_41/"], 
+  ["jiangxinyu", "  https://wjswldndfpdh.github.io/Jiwoong-Jeon-final/Jiwoong_Jeon_final_project_2024_04_28_00_09_41/"], 
+
+  ["quigleybianca", "https://biancaquig.github.io/Color_Synthesizer/3/"], 
+  ["sad", "https://asheaquiles.github.io/Chris-Ale-FINAL-project-V2/"], 
+  ["sad", "https://asheaquiles.github.io/Chris-Ale-FINAL-project-V2/"], 
+  ["sad", "https://louisshen1.github.io/p5jsTest1/Virtual%20Piano/"], 
+  ["zhangjustin", "https://justinzhangjx.github.io/SYNTHZIV/synthziv/"], 
+
+  
+
 ];
 
-var img;
+function preload() {
+   for (i = 0; i < student.length; i++) {
+     let name = student[i][0];
+  img[i] = loadImage("images/" + name + ".png");
+   }
+}
+
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   textFont("courier");
 
-  boarder = (width % 200) / 2;
-
+  boarder = int((width % 200) / 2);
+  
   for (i = 0; i < student.length; i++) {
-    buttons[i] = new linkImages(
-      ((i * 200) % (int(width / 200) * 200)) + boarder,
-      int((i * 200) / width) * 200 + 70,
-      student[i][0],
+    positions = (i*200)
+    numOfCollum = int(width/200)
+    row = i % numOfCollum
+    collum = int(i / numOfCollum)
+    console.log(collum);
+      buttons[i] = new linkImages(
+      row*200+boarder,
+      collum*200+90,
+      img[i],
       student[i][1]
     );
   }
+  
   textSize(45);
   fill(0, 102, 153);
   text("2024 PEABODY Intro to Programming", int(boarder), 50);
-}
+  strokeWeight(5);
+  stroke(0, 102, 153)
+  line(int(boarder), 65, width-boarder, 65)
 
-function draw() {
+
   for (i = 0; i < student.length; i++) {
     buttons[i].make();
+    
   }
+// console.log(buttons[1])
+
+
+}
+
+
+function draw() {
+
 }
 
 function mousePressed() {
@@ -86,10 +103,12 @@ class linkImages {
     this.posX = posX;
     this.posY = posY;
     // this.button = createImg('images/'+name+'.png', this.name);
-    this.button = loadImage("images/" + name + ".png");
+    // this.button = loadImage("images/" + name + ".png");
+  this.button = name;
   }
   make() {
     image(this.button, this.posX, this.posY, 195, 195);
+    
   }
   intersect() {
     return (
@@ -100,9 +119,9 @@ class linkImages {
     );
   }
   goToLink() {
-    console.log(this.link);
+//     console.log(this.link);
     window.open(this.link);
   }
 }
 
-function windowResized() {}
+// function windowResized() {}
