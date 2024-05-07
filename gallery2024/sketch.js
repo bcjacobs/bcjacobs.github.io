@@ -3,6 +3,7 @@ var yPos = 0;
 var overflow = false;
 var boarder;
 var img = [];
+var column
 
 var student = [
   ["bryanjacobs", "https://bcjacobs.github.io/jacobs"],
@@ -48,24 +49,32 @@ function preload() {
 
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  
+  
   textFont("courier");
 
   boarder = int((width % 200) / 2);
   
+  createCanvas(windowWidth, 2000);
+  
+
+
+  
   for (i = 0; i < student.length; i++) {
     positions = (i*200)
-    numOfCollum = int(width/200)
-    row = i % numOfCollum
-    collum = int(i / numOfCollum)
-    console.log(collum);
+    numOfColumn = int(width/200)
+    row = i % numOfColumn
+    column = int(i / numOfColumn)
+    
       buttons[i] = new linkImages(
       row*200+boarder,
-      collum*200+90,
+      column*200+90,
       img[i],
       student[i][1]
     );
   }
+  
+  
   
   textSize(45);
   fill(0, 102, 153);
