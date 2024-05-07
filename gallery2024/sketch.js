@@ -9,7 +9,7 @@ var student = [
   ["gainesjordan", "https://jgaine16.github.io/Audio-Images/"],
   ["haosiyuan", "https://siyuanhao2004.github.io/SiyuanHaoRefined/"],
   ["litian", "https://ypo123.github.io/Monk_Synth/"],
-  ["sad", "https://daysonyang.github.io/3D-synthesizer/"],
+  ["tianqi", "https://daysonyang.github.io/3D-synthesizer/"],
   ["wangqihao", "https://myshadowgithub.github.io/My_P5JS_Final_Project/OnlineKeyboard/"],
   ["yiting", "https://naw9nawnaw.github.io/Shader1-With-Sound-by-Nawmel/"],
   ["fionawu", "https://fionawu1212.github.io/p5jsFinal/final2024/"],
@@ -33,9 +33,10 @@ var student = [
   ["sad", "https://asheaquiles.github.io/Chris-Ale-FINAL-project-V2/"], 
   ["sad", "https://louisshen1.github.io/p5jsTest1/Virtual%20Piano/"], 
   ["zhangjustin", "https://justinzhangjx.github.io/SYNTHZIV/synthziv/"], 
-
+  ["liuandrea", "https://andrealiu1002.github.io/Final-Proj/"], 
+  ["andreasimons", "https://andrjjj.github.io/maze-generator/"], 
+ 
   
-
 ];
 
 function preload() {
