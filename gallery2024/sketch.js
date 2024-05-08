@@ -13,7 +13,7 @@ var student = [
   ["tianqi", "https://daysonyang.github.io/3D-synthesizer/"],
   ["wangqihao", "https://myshadowgithub.github.io/My_P5JS_Final_Project/OnlineKeyboard/"],
   ["yiting", "https://naw9nawnaw.github.io/Shader1-With-Sound-by-Nawmel/"],
-  ["fionawu", "https://fionawu1212.github.io/p5jsFinal/final2024/"],
+  ["fionawu", "https://fionawu1212.github.io/p5jsFinal/Final_2024/"],
   ["yangmengyi", "https://mengyi0830.github.io/Programming_Final_Project_Reverb/"], 
 
   ["faisalaletani", "https://faisalaletani.github.io/CYMATICS-of-MAQAM/"], 
@@ -30,7 +30,6 @@ var student = [
   ["jiangxinyu", "https://editor.p5js.org/inorijam/full/vtaCiY21a"], 
 
   ["quigleybianca", "https://biancaquig.github.io/Color_Synthesizer/3/"], 
-  ["sad", "https://asheaquiles.github.io/Chris-Ale-FINAL-project-V2/"], 
   ["sad", "https://asheaquiles.github.io/Chris-Ale-FINAL-project-V2/"], 
   ["louisshen", "https://louisshen1.github.io/p5jsTest1/Virtual%20Piano/"], 
   ["zhangjustin", "https://justinzhangjx.github.io/SYNTHZIV/synthziv/"], 
