@@ -27,7 +27,7 @@ var student = [
   ["rossleo", "https://aeyth1.github.io/flappy-bird/"], 
   ["fujulia", "https://juliafu420.github.io/the-maze-runner/"], 
   ["jeonjiwoong", "https://wjswldndfpdh.github.io/ITP-final/Jiwoong_Jeon_final_project_2024_05_06_21_12_44/"], 
-  ["jiangxinyu", "https://editor.p5js.org/inorijam/full/vtaCiY21a"], 
+  ["jiangxinyu", "https://cynthiajiang6.github.io/NoniCYnthia11/cynthia%5Fis%5Fcrazy%5F2024%5F05%5F07%5F19%5F43%5F05/"], 
 
   ["quigleybianca", "https://biancaquig.github.io/Color_Synthesizer/3/"], 
   ["sad", "https://asheaquiles.github.io/Chris-Ale-FINAL-project-V2/"], 
