@@ -1,68 +1,77 @@
-let audioStarted = false; // needed to get it to work in full screen mode
+var mode = 0;
+let img;
+let osc;
+let scanX = 0;
+let probes = []; // Objects to store x, y, and speed
+let bright;
+let myTypes = ["square", "triangle", "sawtooth", "sine"];
 
-var levelsLow;
-var levelsHigh;
-
-function preload(){
-  sound = loadSound('drumLoop.mp3');
-}
-
-
+let oscillators = [];
+const numOscs = 5;
 
 function setup() {
+  
+ 
+  
+  let c = createCanvas(windowWidth, windowHeight);
 
-  getAudioContext().suspend(); // needed to get it to work in full screen mode
+  splash = new Splash();
+  // splash = new Splash();
+  
+  // c.drop(gotFile);
+  
+    textAlign(CENTER);
+  fill(255);
 
-  
-  // createCanvas(710, 400, WEBGL);
-  
-  createCanvas(displayWidth, displayHeight, WEBGL);
-  
-  fft = new p5.FFT();
-  sound.play();
-  sound.amp(0.2);
+  for (let i = 0; i < numOscs; i++) {
+    let osc = new p5.Oscillator(myTypes[int(random(0, 3))]);
+    osc.start();
+    osc.amp(0);
+    oscillators.push(osc);
+
+    osc.pan(map(i, 0, numOscs - 1, -1, 1));
+    oscillators.push(osc);
+    reverb = new p5.Reverb();
+    osc.disconnect();
+    reverb.process(osc, 3, 2);
+
+    probes.push({
+      x: random(width),
+      y: random(height),
+      vx: random(0.5, 1.5),
+      vy: random(-0.2, 0.2),
+    });
+  }
 }
 
 function draw() {
-  background(255);
-  
-  let spectrum = fft.analyze();
-  
-  if(spectrum[10] > 100){
-    levelsLow = spectrum[10];
+  if (mouseIsPressed == true && splash.update() == true) {
+    mode = 1;
   }
   
-  if(spectrum[200] > 100){
-    levelsHigh = spectrum[200];
+  if (mode == 1) {
+    splash.hide();
+    
+    // your code here
+    background(255);
+    fill(100);
+    noStroke();
+    rect(50, 50, windowWidth - 100, windowHeight - 100);
+    fill(0);
+    ellipse(mouseX, mouseY, 20, 20);
   }
- 
-  for (let i=0; i<width; i=i+7){
-    line(i-(width/2), -height/2, i-(width/2), height/2);
-  }
-
-
-  push();
-  translate(-width/4, 0, 0);
-  // rotateZ(frameCount * 0.01);
-  rotateX(frameCount * 0.01);
-  rotateY(frameCount * 0.01);
-  torus(levelsLow+ width/100, width*.015);
-  pop();
-  
-  push();
-  translate(width/4, 0, 0);
-  // rotateZ(frameCount * 0.01);
-  rotateX(frameCount * 0.01);
-  rotateY(frameCount * 0.01);
-  torus(levelsHigh+ width/100 , width*.015);
-  pop();
-  
 }
 
-function mousePressed() { // needed to get it to work in full screen mode
-    // Start audio on user gesture
-    if (!audioStarted) {
-        userStartAudio();
-        audioStarted = true;
-    }
+function gotFile(file) {
+  if (file.type === "image") {
+    img = createImg(file.data, "").hide();
+    loadImage(file.data, (newImg) => {
+      img = newImg;
+      img.loadPixels();
+    });
+  } else {
+    console.log("Not an image file!");
+  }
 }
+
+
