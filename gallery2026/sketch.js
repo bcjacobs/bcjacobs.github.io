@@ -1,35 +1,41 @@
 var students = [
-  ["bryanjacobs", "https://bcjacobs.github.io/jacobs"],
-  ["jude", "https://racookitty2.github.io/Programming-Final---Granular-Synth/"],
+ 
+["jude", "https://racookitty2.github.io/Programming-Final---Granular-Synth/"],
  
   
-// ["lisa", "https://chenglisa18.github.io/repositoryfinalprojectlisacheng/"],
+["lisa", "https://chenglisa18.github.io/repositoryfinalprojectlisacheng/"],
 ["marco", "https://clayboimari.github.io/Final-Project/"],
-// ["camryn", "http://camryndavis-bot.github.io/Castle-Builder-Dark-Fantasy-Fortress/"],
-// ["rayna", "https://raykavalauskas-creator.github.io/TheMeowMatrix/"],
+["camryn", "http://camryndavis-bot.github.io/Castle-Builder-Dark-Fantasy-Fortress/"],
+["rayna", "https://raykavalauskas-creator.github.io/TheMeowMatrix/"],
 ["zihan", "https://harlylin2025-creator.github.io/zihanlin/"],
-// ["jaxx", "https://jaxxplease.github.io/Zooniverse/"],
+["jaxx", "https://jaxxplease.github.io/Zooniverse/"],
 ["zoe", "https://zoeshack.github.io/Zoe-Shack-Final-Project/"],
 ["joe", "https://exventory.github.io/MouseMoods/"],
 ["carina", "https://carneedssomerest.github.io/Soundscape-in-the-Mist/"],
-// ["chin_tung", "https://chinn6689.github.io/Acoustic-Ripples/"],
-
-// ["hayley", ""?"],
-// ["zhijie", "https://jay-ding216.github.io/Final-projectSnakkkkeeee/"],
+["tungchin", "https://chinn6689.github.io/Acoustic-Ripples/"],
+["jackson", "https://jacksonhollo.github.io/introtoprogrammingfinal/"],
+["alexm", "https://sushirolls-am.github.io/chooseyourfate_visualizer/"],
+  ["greg", "https://gregehrhardt.github.io/Spring-2026-Intro/"],
+  
+["hayley", "https://hayleycamp.github.io/ProgrammingProject/"],
 ["bolai", "https://victor-art-gif.github.io/introTest/"],
-// ["jackson", "https://jacksonhollo.github.io/introtoprogrammingfinal/"],
 ["yichen", "https://angelosalsas.github.io/YichenLiu-SixShot/"],
-["alex", "https://sushirolls-am.github.io/chooseyourfate_visualizer/"],
-// ["justice", "https://justicewastakenunfortunately.github.io/ITP-FinalProject-WaveSim-JN/"],
-// ["willow", "https://wotten2.github.io/intro2programmingclass/"],
+["alexb", "https://backa3090.github.io/IntroCoding/"],
+["obie", "https://editor.p5js.org/osfeldi/sketches/rtja3ADzZ"],
+["jay", "https://jay-ding216.github.io/Final-projectSnakkkkeeee/"],
+  
+["justice", "https://justicewastakenunfortunately.github.io/ITP-FinalProject-WaveSim-JN/"],
+["willow", "https://wotten2.github.io/intro2programmingclass/"],
 ["miaoge", "https://ylin35.github.io/Visualizer/"]
+  
+  
   
 ];
 
 let gallery = [];
 let img = [];
 let button;
-let isDark = true;
+let isDark = false;
 const thumbnail = 240;
 const padding = 30;
 
